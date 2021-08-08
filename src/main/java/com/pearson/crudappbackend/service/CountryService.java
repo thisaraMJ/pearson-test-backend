@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CountryService {
@@ -22,9 +23,9 @@ public class CountryService {
         return countryRepo.findAll();
     }
 
-    public Country findCountryById(int id) {
-        return countryRepo.findCountryById(id)
-                .orElseThrow(() -> new CountryNotFoundException("Country is with id: " + id + " was not found"));
+    public Optional<Country> findCountryById(int id) {
+        return countryRepo.findById(id);
+
     }
 
     public Country addCountry(Country country) {
@@ -36,7 +37,7 @@ public class CountryService {
     }
 
     public void deleteCountry(int id) {
-        countryRepo.deleteEmployeeById(id);
+        countryRepo.deleteById(id);
     }
 
 

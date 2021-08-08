@@ -26,7 +26,7 @@ public class CountryController {
 
     @GetMapping("/find/{id}")
     public ResponseEntity<Country> getCountryById(@PathVariable("id") int id){
-        Country country = countryService.findCountryById(id);
+        Country country = countryService.findCountryById(id).get();
         return new ResponseEntity<>(country, HttpStatus.OK); //200
     }
 

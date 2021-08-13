@@ -1,4 +1,4 @@
-# pearson-test-backend
+# Pearson Test Backend
 
 1.Import this project into your IDE
 
